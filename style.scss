@@ -1,0 +1,109 @@
+$main-colour: #18bc9c;
+$second-colour: #2c3e50;
+
+.top-section {
+    background: $main-colour;
+    //   height: 100vh;
+    width: 100%;
+
+    img {
+        border-radius: 50%;
+    }
+}
+
+.line-break {
+    width: 10rem;
+    height: 2px;
+    background: #fff;
+}
+
+.second-section {
+    background: $second-colour;
+
+    .container {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+    }
+}
+
+.technologies {
+    .line-break {
+        background: #000;
+    }
+
+    .tech-logo {
+        max-width: 50%;
+        height: auto;
+    }
+}
+
+
+
+.portfolio {
+    background: $second-colour;
+
+    h1 {
+        text-align: center;
+    }
+
+    .project {
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background: $main-colour;
+            opacity: 0.8;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+            transition: transform 3s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        //bring in main color overlay
+        &:hover:after {
+            transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+        }
+
+        &-links {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            opacity: 0;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 1.8rem;
+
+                &:hover {
+                    border-bottom: 3px solid #fff;
+                }
+            }
+        }
+
+        &:hover .project-links {
+            opacity: 1;
+            transition-delay: 0.45s;
+        }
+    }
+}
+
+.footer {
+    a {
+        color: $main-colour;
+
+        &:hover {
+            color: saturate($main-colour, 30%)
+        }
+    }
+}
